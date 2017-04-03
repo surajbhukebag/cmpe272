@@ -1,7 +1,13 @@
 <br/>
 <br/>
 <div class="container">
-<h3> List of Registred Users on Buy-Trade-Sell</h3>
+<div align="right">
+<a href="src/logout.php" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-log-out"></span> Log out
+</a>
+</div>
+
+<h3> List of Registred Users on Buy-Trade-Sell</h3> 
 <br/>
 <div class="table-responsive">          
   <table class="table">

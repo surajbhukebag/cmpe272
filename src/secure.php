@@ -52,8 +52,12 @@ session_start();
 			<div class="container">
 			<p>&nbsp;</p>
 			<?php 
-
+				if($_SESSION['user'] != null) {
+					include 'accountlist.php';
+				}
+				else {
 					include 'login.php'; 
+				}
 
 			?>
 			</div>       
