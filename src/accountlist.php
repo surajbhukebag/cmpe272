@@ -24,11 +24,11 @@
     <tbody>
       <tr>
         <td>1</td>
-        <td>Anna</td>
-        <td>Pitt</td>
-        <td>35</td>
-        <td>New York</td>
-        <td>USA</td>
+        <td>Ganesh</td>
+        <td>HSM TH</td>
+        <td>27</td>
+        <td>Saudatti</td>
+        <td>India</td>
       </tr>
 	  
 	        <tr>

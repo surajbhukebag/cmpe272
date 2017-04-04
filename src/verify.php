@@ -1,5 +1,8 @@
 <?php
-session_start();
+   if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +56,10 @@ session_start();
 		$_SESSION["user"] = $username;
 		include 'accountlist.php';
 	} else {
-		include 'notallowed.php';
+		$_SESSION["error"] = "Either Username/Password is incorrect or You Are not allowed to access this page.";
+		echo "<div class='container'>";
+		include 'login.php';
+		echo "</div></div>";
 	}
 
   }

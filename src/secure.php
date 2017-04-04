@@ -1,6 +1,9 @@
 <?php
 // Start the session
-session_start();
+   if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,24 +50,24 @@ session_start();
  ?>  
    
 	
- <div class="row" style="padding-top: 59px;">
+	<div class="row" style="padding-top: 59px;">
 		
 			<div class="container">
 			<p>&nbsp;</p>
 			<?php 
-				if($_SESSION['user'] != null) {
+				if(isset($_SESSION['user'])) {
 					include 'accountlist.php';
 				}
-				else {
+				else {					
 					include 'login.php'; 
 				}
 
 			?>
 			</div>       
 
-		</div>
+	</div>
 
-    </div>
+    
     <!-- /.container -->
 
     <!-- /.container -->
