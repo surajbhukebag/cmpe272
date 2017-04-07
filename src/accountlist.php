@@ -9,7 +9,10 @@
 
 <h3> List of Registred Users on Buy-Trade-Sell</h3> 
 <br/>
-<div class="table-responsive">          
+<div class="table-responsive">     
+
+
+     
   <table class="table">
     <thead>
       <tr>
@@ -22,50 +25,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Ganesh</td>
-        <td>HSM TH</td>
-        <td>27</td>
-        <td>Saudatti</td>
-        <td>India</td>
-      </tr>
+	<?php
+
+	$sourceFile = file_get_contents('../resources/text/users.txt');
+	$fileContents = explode("\n", $sourceFile);	
+
+	foreach($fileContents as $value) {
+		$users = explode(" ", $value);
+		echo "<tr><td>$users[0]</td><td>$users[1]</td><td>$users[2]</td><td>$users[3]</td><td>$users[4]</td><td>$users[5]</td></tr>";
+	}
+?>
+      
 	  
-	        <tr>
-        <td>2</td>
-        <td>Abhishek</td>
-        <td>Deshpande</td>
-        <td>27</td>
-        <td>Charlotte</td>
-        <td>USA</td>
-      </tr>
-	  
-	        <tr>
-        <td>3</td>
-        <td>Akshata</td>
-        <td>Kittur</td>
-        <td>25</td>
-        <td>Bangalore</td>
-        <td>India</td>
-      </tr>
-	  
-	        <tr>
-        <td>4</td>
-        <td>Nayan</td>
-        <td>Patil</td>
-        <td>26</td>
-        <td>Brande</td>
-        <td>Denmark</td>
-      </tr>
-	  
-	        <tr>
-        <td>5</td>
-        <td>Sai</td>
-        <td>Vernekar</td>
-        <td>27</td>
-        <td>San Jose</td>
-        <td>USA</td>
-      </tr>
     </tbody>
   </table>
   </div>
