@@ -26,11 +26,24 @@
                     <li>
                         <a href="src/contact.php">Contact</a>
                     </li>
-					    <li>
+					<li>
                         <a href="src/secure.php">Secure Page</a>
                     </li>
+			
+			
+			 <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Section <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="src/createuser.php">Create User</a></li>
+                  <li><a href="#">Search Users</a></li>
                 </ul>
+              </li>
+			  
+                </ul>
+				
+	
             </div>
+			
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
