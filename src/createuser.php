@@ -1,3 +1,10 @@
+<?php
+// Start the session
+   if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,24 +28,69 @@
 
 <body>
 
+	<?php include 'common/header.php';?>
+	
 	<?php
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") 
 	{ 
-		echo $_POST["email"];
+
+		$servername = "localhost";
+		$username = "cmpe272user";
+		$password = "cmpe272user";
+		$dbname = "cmpe272";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+			$_SESSION['error'] = "Connection error: ".$conn->connect_error;
+		} 
+		else {
+		$sql = "INSERT INTO users (firstname, lastname, email, gender, address, city, home_contactnumber, mobile_contactnumber) VALUES ('$_POST[firstname]', '$_POST[lastname]', '$_POST[email]', '$_POST[gender]', '$_POST[address]', '$_POST[city]', '$_POST[homenumber]', '$_POST[mobilenumber]')";
+
+		if ($conn->query($sql)) {
+			$_SESSION['msg'] = "User created successfully";
+		} else {
+			$_SESSION['error'] = "User Creation failed with : ".$conn->error;
+			
+		}
+
+		$conn->close();
+		}
+
+
 
 	}
 	
 	?>
-	<?php include 'common/header.php';?>
+	
 
 	<div class="row" style="padding-top: 59px;">
 		
 	<div class="container">
 	
 		<div class="container">    
+		
+		<?php
+			if(isset($_SESSION['msg'])) {
+				echo "<br/>";
+				echo "<div class='alert alert-success'>";
+				echo $_SESSION['msg'];
+				echo "</div>";
+				unset($_SESSION['msg']);
+			}
+			
+			if(isset($_SESSION['error'])) {
+				echo "<br/>";
+				echo "<div class='alert alert-danger'>";
+				echo $_SESSION['error'];
+				echo "</div>";
+				unset($_SESSION['error']);
+			}
+		?>
             
-    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div id="signupbox" style=" margin-top:35px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">User Creation</div>
@@ -54,21 +106,21 @@
                         <div id="div_id_username" class="form-group required">
                             <label for="id_username" class="control-label col-md-4  requiredField"> First Name<span class="asteriskField">*</span> </label>
                             <div class="controls col-md-8 ">
-                                <input class="input-md  textinput textInput form-control" id="id_username" maxlength="30" name="firstname" placeholder="Enter your first name" style="margin-bottom: 10px" type="text" required />
+                                <input class="input-md  textinput textInput form-control" id="id_username" maxlength="30" name="firstname" placeholder="enter your first name" style="margin-bottom: 10px" type="text" required />
                             </div>
                         </div>
 						
 						<div id="div_id_username" class="form-group required">
                             <label for="id_username" class="control-label col-md-4  requiredField"> Last Name<span class="asteriskField">*</span> </label>
                             <div class="controls col-md-8 ">
-                                <input class="input-md  textinput textInput form-control" id="id_username" maxlength="30" name="lastname" placeholder="Enter your last name" style="margin-bottom: 10px" type="text" required/>
+                                <input class="input-md  textinput textInput form-control" id="id_username" maxlength="30" name="lastname" placeholder="enter your last name" style="margin-bottom: 10px" type="text" required/>
                             </div>
                         </div>
 						
                         <div id="div_id_email" class="form-group required">
                             <label for="id_email" class="control-label col-md-4  requiredField"> E-mail<span class="asteriskField">*</span> </label>
                             <div class="controls col-md-8 ">
-                                <input class="input-md emailinput form-control" id="id_email" name="email" placeholder="Your current email address" style="margin-bottom: 10px" type="email" required/>
+                                <input class="input-md emailinput form-control" id="id_email" name="email" placeholder="your current email address" style="margin-bottom: 10px" type="email" required/>
                             </div>     
                         </div>
    
@@ -80,30 +132,30 @@
                             </div>
                         </div>
                         <div id="div_id_company" class="form-group required"> 
-                            <label for="id_company" class="control-label col-md-4  requiredField"> Home Address<span class="asteriskField">*</span> </label>
+                            <label for="id_company" class="control-label col-md-4  requiredField"> Address<span class="asteriskField">*</span> </label>
                             <div class="controls col-md-8 "> 
-                                 <input class="input-md textinput textInput form-control" id="id_company" name="company" placeholder="your company name" style="margin-bottom: 10px" type="text" required />
+                                 <input class="input-md textinput textInput form-control" id="id_company" name="address" placeholder="your address " style="margin-bottom: 10px" type="text" required />
                             </div>
                         </div>  
              
                         <div id="div_id_location" class="form-group">
-                            <label for="id_location" class="control-label col-md-4 "> Your Location </label>
+                            <label for="id_location" class="control-label col-md-4 "> City</label>
                             <div class="controls col-md-8 ">
-                                <input class="input-md textinput textInput form-control" id="id_location" name="location" placeholder="Your Pincode and City" style="margin-bottom: 10px" type="text" />
+                                <input class="input-md textinput textInput form-control" id="id_location" name="city" placeholder="your city" style="margin-bottom: 10px" type="text" />
                             </div> 
                         </div>
 						
 						<div id="div_id_number" class="form-group required">
                              <label for="id_number" class="control-label col-md-4  requiredField"> Home Phone<span class="asteriskField">*</span> </label>
                              <div class="controls col-md-8 ">
-                                 <input class="input-md textinput textInput form-control" id="id_number" name="number" placeholder="provide your number" style="margin-bottom: 10px" type="text" required/>
+                                 <input class="input-md textinput textInput form-control" id="id_number" name="homenumber" placeholder="provide your number" style="margin-bottom: 10px" type="text" required/>
                             </div> 
                         </div>
 						
 						<div id="div_id_number" class="form-group required">
                              <label for="id_number" class="control-label col-md-4  requiredField"> Cell Phone<span class="asteriskField">*</span> </label>
                              <div class="controls col-md-8 ">
-                                 <input class="input-md textinput textInput form-control" id="id_number" name="number" placeholder="provide your number" style="margin-bottom: 10px" type="text" required/>
+                                 <input class="input-md textinput textInput form-control" id="id_number" name="mobilenumber" placeholder="provide your number" style="margin-bottom: 10px" type="text" required/>
                             </div> 
                         </div>
 						
