@@ -30,16 +30,7 @@
         <div class="row" style="padding-top: 59px;">
 		
 		
-		           <div class="col-md-3">
-                <p class="lead">Start Here</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Buy Anything</a>
-                    <a href="#" class="list-group-item">Sell Anything</a>
-                    <a href="#" class="list-group-item">Trade Products</a>
-					<a href="#" class="list-group-item">Get Free Products</a>
-					<a href="#" class="list-group-item">Rent Anything<sup>BETA</sup></a>
-                </div>
-            </div>
+			<?php include 'src/common/menu.php';?>
             <div class="col-md-9">
 				
                 <div class="row carousel-holder">
@@ -80,7 +71,7 @@
                             <img src="resources/img/powerbank320x150.jpg" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$4.99</h4>
-                                <h4><a href="#">Syska Power Bank</a>
+                                <h4><a href="src/product.php?id=1">Syska Power Bank</a>
                                 </h4>
                                 <p>X-110 is an ultra-high capacity power bank to charge your device anywhere.</p>
                             </div>
@@ -102,7 +93,7 @@
                             <img src="resources/img/bagpack320x150.jpg" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$2.99</h4>
-                                <h4><a href="#">AT Bagpack</a>
+                                <h4><a href="src/product.php?id=2">AT Bagpack</a>
                                 </h4>
                                 <p>Constructed from lightweight and durable Denier micro-ballistic fabric. Body Dimensions:18 x 13.5 x 7.0</p>
                             </div>
@@ -124,7 +115,7 @@
                             <img src="resources/img/laptop320x150.jpg" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$149.99</h4>
-                                <h4><a href="#">Lenovo Z580</a>
+                                <h4><a href="src/product.php?id=3">Lenovo Z580</a>
                                 </h4>
                                 <p>Intel Core i5 3rd Gen 3210M 6 GB Memory 500 GB HDD NVIDIA GeForce GT 635M 15.6" Windows 8.</p>
                             </div>
@@ -146,7 +137,7 @@
                             <img src="resources/img/piano320x150.jpg" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$84.99</h4>
-                                <h4><a href="#">88-Key Wooden Key Stage Piano</a>
+                                <h4><a href="src/product.php?id=4">88-Key Wooden Key Stage Piano</a>
                                 </h4>
                                 <p>The CP4 Stage features sounds from Yamaha's Premium Collection of hand crafted grand pianos including the CFX, CFIIIs and the S6.</p>
                             </div>
@@ -168,7 +159,7 @@
                             <img src="resources/img/tablechair320x150.jpg" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$14.99</h4>
-                                <h4><a href="#">Lancaster Table Chair</a>
+                                <h4><a href="src/product.php?id=5">Lancaster Table Chair</a>
                                 </h4>
                                 <p>Perfect for banquet halls, meeting rooms, waiting rooms, and convention centers, 
 								the Lancaster Table & Seating black stackable banquet chair with 1” padded seat is what you need for your next event. </p>
@@ -191,7 +182,7 @@
                             <img src="resources/img/whiteboard320x150.jpg" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$9.99</h4>
-                                <h4><a href="#">Rolling Magnetic Dry Erase Whiteboard</a>
+                                <h4><a href="src/product.php?id=6">Rolling Magnetic Dry Erase Whiteboard</a>
                                 </h4>
                                 <p>Mobile Reversible Whiteboards rotates 360 degrees on a pivot hinge and locks into 3 places for better viewing.Neutral color steel powder-coated frame.</p>
                             </div>
