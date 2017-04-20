@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 <base href="http://localhost/buytradesell/">
-    <title>Buy-Trade-Sell View Recently Visited Products</title>
+    <title>Buy-Sell-Trade Most Visited Products</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -31,22 +31,25 @@
 			$itemsAvailable = true;
 			$idList = $_COOKIE['items'];
 			$idArray = explode(",", $idList);
-
+			$prodCount = array_count_values($idArray);
+			arsort($prodCount);
+	
 			$idSize = sizeof($idArray)-1;
 			$maxCnt = 1;
 			$finalIds = array();
-			for($i = $idSize; $i >= 0; $i-- ) {
-				$key = $idArray[$i];
+			
+			foreach ($prodCount as $key => $value) {
 				if($maxCnt <= 5) {
-						if(!in_array($key, $finalIds)) {
+				
 					array_push($finalIds, $key);
 					$maxCnt++;
-				}
+			
 				}
 				else {
 					break;
-				}				
+				}
 			}
+			
 			
 			if(sizeof($finalIds) > 0) {
 				
@@ -101,7 +104,7 @@
             <div class="col-md-9">
 			<?php 
 				if($itemsAvailable) {
-					echo "<h3>Recently Visited Products</h3>";
+					echo "<h3>Most Visited Products</h3>";
 					include 'recent_products.php';
 				}
 				else {
